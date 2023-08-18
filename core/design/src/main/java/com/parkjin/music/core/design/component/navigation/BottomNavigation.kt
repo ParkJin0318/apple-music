@@ -33,7 +33,7 @@ fun BottomNavigation(
         modifier = Modifier
             .fillMaxWidth()
             .background(LocalColorScheme.current.background)
-            .padding(horizontal = 20.dp, vertical = 8.dp),
+            .padding(horizontal = 20.dp, vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceAround,
     ) {
@@ -70,7 +70,7 @@ fun BottomNavigationItem(
 
         Text(
             text = name,
-            style = LocalTypography.current.caption2,
+            style = LocalTypography.current.caption1,
             color = color,
         )
     }

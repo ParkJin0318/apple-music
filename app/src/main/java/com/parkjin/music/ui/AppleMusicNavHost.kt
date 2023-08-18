@@ -68,13 +68,13 @@ fun AppleMusicNavHost(
                 icon = ImageVector.vectorResource(R.drawable.icon_play),
                 name = stringResource(id = R.string.word_listen),
                 selected = currentRoute == AppleMusicBottomMenu.Play.route,
-                onClick = { navigate("play") },
+                onClick = { navigate(AppleMusicBottomMenu.Play.route) },
             )
             BottomNavigationItem(
                 icon = ImageVector.vectorResource(R.drawable.icon_music_locker),
                 name = stringResource(id = R.string.word_locker),
                 selected = currentRoute == AppleMusicBottomMenu.Locker.route,
-                onClick = { navigate("locker") },
+                onClick = { navigate(AppleMusicBottomMenu.Locker.route) },
             )
         }
     }
