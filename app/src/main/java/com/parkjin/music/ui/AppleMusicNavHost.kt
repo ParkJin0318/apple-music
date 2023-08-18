@@ -1,11 +1,7 @@
 package com.parkjin.music.ui
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -16,9 +12,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.parkjin.music.core.design.R
-import com.parkjin.music.core.design.base.LocalColorScheme
 import com.parkjin.music.core.design.component.navigation.BottomNavigation
 import com.parkjin.music.core.design.component.navigation.BottomNavigationItem
+import com.parkjin.music.feature.locker.LockerScreen
 import com.parkjin.music.feature.play.PlayScreen
 
 @Composable
@@ -52,11 +48,7 @@ fun AppleMusicNavHost(
             }
 
             composable(AppleMusicBottomMenu.Locker.route) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(LocalColorScheme.current.primary),
-                )
+                LockerScreen()
             }
         }
 

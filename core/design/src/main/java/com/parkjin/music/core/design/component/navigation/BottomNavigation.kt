@@ -1,6 +1,7 @@
 package com.parkjin.music.core.design.component.navigation
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -55,6 +56,7 @@ fun BottomNavigationItem(
         } else {
             LocalColorScheme.current.content
         },
+        animationSpec = spring(dampingRatio = 3f),
         label = "bottomNavigationItemColor",
     )
 
