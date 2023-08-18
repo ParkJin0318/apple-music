@@ -18,8 +18,11 @@ object Dependency {
 
         object UI {
             const val ui = "androidx.compose.ui:ui"
-            const val graphic = "androidx.compose.ui:ui-graphic"
-            const val tooling = "androidx.compose.ui:ui-tooling-preview"
+            const val graphics = "androidx.compose.ui:ui-graphics"
+            const val preview = "androidx.compose.ui:ui-tooling-preview"
+
+            const val tooling = "androidx.compose.ui:ui-tooling"
+            const val manifest = "androidx.compose.ui:ui-test-manifest"
         }
     }
 
@@ -27,6 +30,12 @@ object Dependency {
         private const val version = "1.7.1"
 
         const val compose = "androidx.activity:activity-compose:$version"
+    }
+
+    object Navigation {
+        private const val version = "2.6.0"
+
+        const val compose = "androidx.navigation:navigation-compose:$version"
     }
 
     object Kotest {

@@ -7,12 +7,22 @@ android {
     namespace = "com.parkjin.music.core.design"
     compileSdk = 33
 
+    defaultConfig {
+        minSdk = Version.minSdk
+    }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.7"
     }
 }
 
@@ -23,8 +33,12 @@ dependencies {
     implementation(Dependency.Activity.compose)
     implementation(platform(Dependency.Compose.bom))
     implementation(Dependency.Compose.UI.ui)
-    implementation(Dependency.Compose.UI.tooling)
+    implementation(Dependency.Compose.UI.graphics)
+    implementation(Dependency.Compose.UI.preview)
     implementation(Dependency.Compose.foundation)
+
+    debugImplementation(Dependency.Compose.UI.tooling)
+    debugImplementation(Dependency.Compose.UI.manifest)
 
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)

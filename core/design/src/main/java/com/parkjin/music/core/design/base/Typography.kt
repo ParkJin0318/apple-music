@@ -1,4 +1,4 @@
-package com.parkjin.music.ui.theme
+package com.parkjin.music.core.design.base
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.PlatformTextStyle
@@ -8,9 +8,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.sp
-import com.parkjin.music.R
+import com.parkjin.music.core.design.R
 
-internal val LocalTypography = staticCompositionLocalOf { Typography }
+val LocalTypography = staticCompositionLocalOf { Typography }
 
 object Typography {
 

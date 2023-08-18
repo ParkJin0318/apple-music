@@ -58,8 +58,13 @@ dependencies {
     implementation(Dependency.Activity.compose)
     implementation(platform(Dependency.Compose.bom))
     implementation(Dependency.Compose.UI.ui)
-    implementation(Dependency.Compose.UI.tooling)
+    implementation(Dependency.Compose.UI.graphics)
+    implementation(Dependency.Compose.UI.preview)
     implementation(Dependency.Compose.foundation)
+    implementation(Dependency.Navigation.compose)
+
+    debugImplementation(Dependency.Compose.UI.tooling)
+    debugImplementation(Dependency.Compose.UI.manifest)
 
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)

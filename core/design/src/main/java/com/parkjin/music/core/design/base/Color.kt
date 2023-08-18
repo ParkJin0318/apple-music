@@ -1,12 +1,12 @@
-package com.parkjin.music.ui.theme
+package com.parkjin.music.core.design.base
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-internal val LocalColorScheme = staticCompositionLocalOf { ColorScheme }
+val LocalColorScheme = staticCompositionLocalOf { ColorScheme }
 
 object ColorScheme {
     val primary = Color(0xFFE63E43)
-    val default = Color(0xFF858585)
+    val content = Color(0xFF868686)
     val background = Color(0xFFFFFFFF)
 }

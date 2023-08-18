@@ -1,4 +1,4 @@
-package com.parkjin.music.ui.theme
+package com.parkjin.music.core.design.base
 
 import android.app.Activity
 import androidx.compose.runtime.Composable
@@ -18,7 +18,7 @@ fun AppleMusicTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.background.toArgb()
+            window.statusBarColor = ColorScheme.background.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
         }
     }
