@@ -51,6 +51,8 @@ android {
 
 dependencies {
 
+    implementation(project(":core:design"))
+
     implementation(Dependency.Core.core)
     implementation(Dependency.Lifecycle.runtime)
     implementation(Dependency.Activity.compose)
