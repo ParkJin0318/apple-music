@@ -83,7 +83,7 @@ fun PreviewBottomNavigation() {
         BottomNavigation {
             BottomNavigationItem(
                 icon = ImageVector.vectorResource(R.drawable.icon_play),
-                name = stringResource(id = R.string.word_listen),
+                name = stringResource(id = R.string.word_listening),
                 onClick = {},
             )
             BottomNavigationItem(

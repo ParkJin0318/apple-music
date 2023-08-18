@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "apple-music"
 include(":app")
 include(":core:design")
+include(":feature:play")

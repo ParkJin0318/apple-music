@@ -19,6 +19,7 @@ import com.parkjin.music.core.design.R
 import com.parkjin.music.core.design.base.LocalColorScheme
 import com.parkjin.music.core.design.component.navigation.BottomNavigation
 import com.parkjin.music.core.design.component.navigation.BottomNavigationItem
+import com.parkjin.music.feature.play.PlayScreen
 
 @Composable
 fun AppleMusicNavHost(
@@ -47,11 +48,7 @@ fun AppleMusicNavHost(
             startDestination = AppleMusicBottomMenu.Play.route,
         ) {
             composable(AppleMusicBottomMenu.Play.route) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(LocalColorScheme.current.content),
-                )
+                PlayScreen()
             }
 
             composable(AppleMusicBottomMenu.Locker.route) {
@@ -66,7 +63,7 @@ fun AppleMusicNavHost(
         BottomNavigation {
             BottomNavigationItem(
                 icon = ImageVector.vectorResource(R.drawable.icon_play),
-                name = stringResource(id = R.string.word_listen),
+                name = stringResource(id = R.string.word_listening),
                 selected = currentRoute == AppleMusicBottomMenu.Play.route,
                 onClick = { navigate(AppleMusicBottomMenu.Play.route) },
             )
