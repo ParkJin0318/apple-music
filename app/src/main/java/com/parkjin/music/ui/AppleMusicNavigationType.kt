@@ -4,5 +4,5 @@ enum class AppleMusicNavigationType(
     val route: String,
 ) {
     Listening(route = "listening"),
-    Storage(route = "storage"),
+    Archive(route = "archive"),
 }

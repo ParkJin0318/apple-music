@@ -1,4 +1,4 @@
-package com.parkjin.music.feature.storage
+package com.parkjin.music.feature.archive
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,7 +10,7 @@ import com.parkjin.music.core.design.base.LocalColorScheme
 import com.parkjin.music.core.design.component.text.Text
 
 @Composable
-fun StorageScreen(
+fun ArchiveScreen(
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -19,6 +19,6 @@ fun StorageScreen(
             .background(LocalColorScheme.current.background),
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = "Storage")
+        Text(text = "Archive")
     }
 }

@@ -59,10 +59,10 @@ fun AppleMusicApp() {
                 onClick = { navigate(AppleMusicNavigationType.Listening.route) },
             )
             BottomNavigationItem(
-                icon = ImageVector.vectorResource(R.drawable.icon_music_storage),
-                name = stringResource(id = R.string.word_storage),
-                selected = currentRoute == AppleMusicNavigationType.Storage.route,
-                onClick = { navigate(AppleMusicNavigationType.Storage.route) },
+                icon = ImageVector.vectorResource(R.drawable.icon_archive),
+                name = stringResource(id = R.string.word_archive),
+                selected = currentRoute == AppleMusicNavigationType.Archive.route,
+                onClick = { navigate(AppleMusicNavigationType.Archive.route) },
             )
         }
     }

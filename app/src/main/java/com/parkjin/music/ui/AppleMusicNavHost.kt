@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.parkjin.music.feature.listening.ListeningScreen
-import com.parkjin.music.feature.storage.StorageScreen
+import com.parkjin.music.feature.archive.ArchiveScreen
 
 @Composable
 fun AppleMusicNavHost(
@@ -25,8 +25,8 @@ fun AppleMusicNavHost(
                 ListeningScreen()
             }
 
-            composable(AppleMusicNavigationType.Storage.route) {
-                StorageScreen()
+            composable(AppleMusicNavigationType.Archive.route) {
+                ArchiveScreen()
             }
         }
     }

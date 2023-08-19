@@ -8,6 +8,6 @@ interface ListeningUIModel {
 
     data class Track(
         val item: Content,
-        val addedToStorage: Boolean,
+        val addedToArchive: Boolean,
     ) : ListeningUIModel
 }

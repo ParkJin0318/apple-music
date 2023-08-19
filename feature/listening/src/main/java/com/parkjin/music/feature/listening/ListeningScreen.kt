@@ -53,12 +53,12 @@ fun ListeningScreen(
                         albumName = content.collectionName,
                         artistName = content.artistName,
                         artworkUrl = content.artworkUrl,
-                        addedToStorage = false,
-                        onClickStorage = { addToStorage ->
-                            if (addToStorage) {
-                                viewModel.addToStorage(content)
+                        addedToArchive = false,
+                        onClickArchive = { addToArchive ->
+                            if (addToArchive) {
+                                viewModel.addToArchive(content)
                             } else {
-                                viewModel.removeToStorage(content)
+                                viewModel.removeToArchive(content)
                             }
                         },
                     )

@@ -57,7 +57,7 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
     implementation(project(":feature:listening"))
-    implementation(project(":feature:storage"))
+    implementation(project(":feature:archive"))
 
     implementation(Dependency.Kotlinx.serialization)
     implementation(Dependency.Core.core)

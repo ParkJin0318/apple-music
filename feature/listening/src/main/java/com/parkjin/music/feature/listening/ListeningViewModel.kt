@@ -42,11 +42,11 @@ class ListeningViewModel @Inject constructor(
         }
     }
 
-    fun addToStorage(content: Content) {
+    fun addToArchive(content: Content) {
         // TODO
     }
 
-    fun removeToStorage(content: Content) {
+    fun removeToArchive(content: Content) {
         // TODO
     }
 

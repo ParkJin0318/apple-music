@@ -89,8 +89,8 @@ fun PreviewBottomNavigation() {
                 onClick = {},
             )
             BottomNavigationItem(
-                icon = ImageVector.vectorResource(R.drawable.icon_music_storage),
-                name = stringResource(id = R.string.word_storage),
+                icon = ImageVector.vectorResource(R.drawable.icon_archive),
+                name = stringResource(id = R.string.word_archive),
                 onClick = {},
             )
         }

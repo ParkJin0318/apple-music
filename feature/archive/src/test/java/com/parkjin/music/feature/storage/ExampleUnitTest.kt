@@ -1,4 +1,4 @@
-package com.parkjin.music.feature.storage
+package com.parkjin.music.feature.archive
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
