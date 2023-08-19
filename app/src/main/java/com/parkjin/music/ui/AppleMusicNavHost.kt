@@ -14,8 +14,8 @@ import androidx.navigation.compose.rememberNavController
 import com.parkjin.music.core.design.R
 import com.parkjin.music.core.design.component.navigation.BottomNavigation
 import com.parkjin.music.core.design.component.navigation.BottomNavigationItem
+import com.parkjin.music.feature.listening.ListeningScreen
 import com.parkjin.music.feature.locker.LockerScreen
-import com.parkjin.music.feature.play.PlayScreen
 
 @Composable
 fun AppleMusicNavHost(
@@ -41,29 +41,29 @@ fun AppleMusicNavHost(
         NavHost(
             modifier = modifier.weight(1f),
             navController = navController,
-            startDestination = AppleMusicBottomMenu.Play.route,
+            startDestination = AppleMusicNavigationType.Listening.route,
         ) {
-            composable(AppleMusicBottomMenu.Play.route) {
-                PlayScreen()
+            composable(AppleMusicNavigationType.Listening.route) {
+                ListeningScreen()
             }
 
-            composable(AppleMusicBottomMenu.Locker.route) {
+            composable(AppleMusicNavigationType.Locker.route) {
                 LockerScreen()
             }
         }
 
         BottomNavigation {
             BottomNavigationItem(
-                icon = ImageVector.vectorResource(R.drawable.icon_play),
+                icon = ImageVector.vectorResource(R.drawable.icon_listening),
                 name = stringResource(id = R.string.word_listening),
-                selected = currentRoute == AppleMusicBottomMenu.Play.route,
-                onClick = { navigate(AppleMusicBottomMenu.Play.route) },
+                selected = currentRoute == AppleMusicNavigationType.Listening.route,
+                onClick = { navigate(AppleMusicNavigationType.Listening.route) },
             )
             BottomNavigationItem(
                 icon = ImageVector.vectorResource(R.drawable.icon_music_locker),
                 name = stringResource(id = R.string.word_locker),
-                selected = currentRoute == AppleMusicBottomMenu.Locker.route,
-                onClick = { navigate(AppleMusicBottomMenu.Locker.route) },
+                selected = currentRoute == AppleMusicNavigationType.Locker.route,
+                onClick = { navigate(AppleMusicNavigationType.Locker.route) },
             )
         }
     }

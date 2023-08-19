@@ -1,4 +1,4 @@
-package com.parkjin.music.feature.play
+package com.parkjin.music.feature.listening
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,9 +11,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.parkjin.music.core.design.component.text.Text
 
 @Composable
-fun PlayScreen(
+fun ListeningScreen(
     modifier: Modifier = Modifier,
-    viewModel: PlayViewModel = hiltViewModel(),
+    viewModel: ListeningViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
 

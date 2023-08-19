@@ -1,4 +1,4 @@
-package com.parkjin.music.feature.play
+package com.parkjin.music.feature.listening
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,11 +10,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PlayViewModel @Inject constructor(
+class ListeningViewModel @Inject constructor(
     private val getGreenDaySongs: GetGreenDaySongsUseCase,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(PlayState())
+    private val _state = MutableStateFlow(ListeningUIState())
     val state = _state.asStateFlow()
 
     init {
@@ -30,7 +30,7 @@ class PlayViewModel @Inject constructor(
         }
     }
 
-    private fun updateState(block: PlayState.() -> PlayState) {
+    private fun updateState(block: ListeningUIState.() -> ListeningUIState) {
         val newState = block(state.value)
 
         viewModelScope.launch {

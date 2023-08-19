@@ -1,4 +1,4 @@
-package com.parkjin.music.feature.play
+package com.parkjin.music.feature.listening
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe

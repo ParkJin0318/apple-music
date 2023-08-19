@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.parkjin.music.feature.play"
+    namespace = "com.parkjin.music.feature.listening"
     compileSdk = Version.compileSdk
 
     defaultConfig {

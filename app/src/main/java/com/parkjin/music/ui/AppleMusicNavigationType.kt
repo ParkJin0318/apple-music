@@ -1,8 +1,8 @@
 package com.parkjin.music.ui
 
-enum class AppleMusicBottomMenu(
+enum class AppleMusicNavigationType(
     val route: String,
 ) {
-    Play(route = "play"),
+    Listening(route = "listening"),
     Locker(route = "locker"),
 }

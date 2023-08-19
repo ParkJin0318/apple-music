@@ -84,7 +84,7 @@ fun PreviewBottomNavigation() {
     AppleMusicTheme {
         BottomNavigation {
             BottomNavigationItem(
-                icon = ImageVector.vectorResource(R.drawable.icon_play),
+                icon = ImageVector.vectorResource(R.drawable.icon_listening),
                 name = stringResource(id = R.string.word_listening),
                 onClick = {},
             )

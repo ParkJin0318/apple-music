@@ -20,5 +20,5 @@ include(":core:design")
 include(":core:data")
 include(":core:domain")
 
-include(":feature:play")
+include(":feature:listening")
 include(":feature:locker")
