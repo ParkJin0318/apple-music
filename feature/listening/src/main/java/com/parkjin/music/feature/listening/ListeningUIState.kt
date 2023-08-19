@@ -1,6 +1,8 @@
 package com.parkjin.music.feature.listening
 
+import com.parkjin.music.core.domain.model.Content
+
 data class ListeningUIState(
     val isLoading: Boolean = false,
-    val uiModels: List<ListeningUIModel> = emptyList(),
+    val tracks: List<Content> = emptyList(),
 )

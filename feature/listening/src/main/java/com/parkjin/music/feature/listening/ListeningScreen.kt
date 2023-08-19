@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -31,39 +31,33 @@ fun ListeningScreen(
             .fillMaxSize()
             .background(color = LocalColorScheme.current.background),
     ) {
-        items(state.uiModels) { uiModel ->
-            when (uiModel) {
-                is ListeningUIModel.Header -> {
-                    Text(
-                        modifier = Modifier
-                            .padding(start = 20.dp, top = 40.dp, bottom = 12.dp, end = 20.dp),
-                        text = stringResource(id = R.string.listening_screen_title),
-                        style = LocalTypography.current.heading3.copy(
-                            fontWeight = FontWeight.Bold,
-                        ),
-                    )
-                }
-
-                is ListeningUIModel.Track -> {
-                    val content = uiModel.item
-
-                    TrackCard(
-                        modifier = Modifier.fillMaxWidth(),
-                        trackName = content.trackName,
-                        albumName = content.collectionName,
-                        artistName = content.artistName,
-                        artworkUrl = content.artworkUrl,
-                        addedToArchive = false,
-                        onClickArchive = { addToArchive ->
-                            if (addToArchive) {
-                                viewModel.addToArchive(content)
-                            } else {
-                                viewModel.removeToArchive(content)
-                            }
-                        },
-                    )
-                }
+        itemsIndexed(state.tracks) { index, track ->
+            if (index == 0) {
+                Text(
+                    modifier = Modifier
+                        .padding(start = 20.dp, top = 40.dp, bottom = 12.dp, end = 20.dp),
+                    text = stringResource(id = R.string.listening_screen_title),
+                    style = LocalTypography.current.heading3.copy(
+                        fontWeight = FontWeight.Bold,
+                    ),
+                )
             }
+
+            TrackCard(
+                modifier = Modifier.fillMaxWidth(),
+                trackName = track.trackName,
+                albumName = track.collectionName,
+                artistName = track.artistName,
+                artworkUrl = track.artworkUrl,
+                isArchived = track.isArchived,
+                onClickArchive = { isArchive ->
+                    if (isArchive) {
+                        viewModel.archiveTrack(track)
+                    } else {
+                        viewModel.unarchiveTrack(track)
+                    }
+                },
+            )
         }
     }
 }

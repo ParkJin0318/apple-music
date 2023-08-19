@@ -5,7 +5,7 @@ import com.parkjin.music.core.domain.repository.ContentRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetArchivedTracksUseCase @Inject constructor(
+class GetArchivedContentsUseCase @Inject constructor(
     private val repository: ContentRepository,
 ) {
 

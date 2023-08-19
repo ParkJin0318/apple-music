@@ -20,7 +20,7 @@ fun ArchivedContentEntity.toModel() = Content(
     artistName = artistName,
     collectionName = collectionName,
     artworkUrl = artworkUrl,
-    isArchive = true,
+    isArchived = true,
 )
 
 fun Content.toEntity() = ArchivedContentEntity(

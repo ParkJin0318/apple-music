@@ -1,11 +1,14 @@
 package com.parkjin.music.core.design.component.listening
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -33,8 +36,8 @@ fun TrackCard(
     albumName: String,
     artistName: String,
     artworkUrl: String,
-    addedToArchive: Boolean,
-    onClickArchive: (addToArchive: Boolean) -> Unit,
+    isArchived: Boolean,
+    onClickArchive: (isArchive: Boolean) -> Unit,
 ) {
     Row(
         modifier = modifier.padding(horizontal = 20.dp, vertical = 8.dp),
@@ -56,7 +59,7 @@ fun TrackCard(
         ) {
             Text(
                 text = trackName,
-                style = LocalTypography.current.body1.copy(
+                style = LocalTypography.current.body2.copy(
                     fontWeight = FontWeight.SemiBold,
                 ),
             )
@@ -64,13 +67,13 @@ fun TrackCard(
             Text(
                 modifier = Modifier.padding(top = 4.dp),
                 text = albumName,
-                style = LocalTypography.current.body2,
+                style = LocalTypography.current.body3,
             )
 
             Text(
                 modifier = Modifier.padding(top = 4.dp),
                 text = artistName,
-                style = LocalTypography.current.body2.copy(
+                style = LocalTypography.current.body3.copy(
                     color = LocalColorScheme.current.content,
                 ),
             )
@@ -78,8 +81,8 @@ fun TrackCard(
 
         TrackArchiveIcon(
             modifier = Modifier
-                .clickable { onClickArchive(addedToArchive.not()) },
-            addedToArchive = addedToArchive,
+                .clickable { onClickArchive(isArchived.not()) },
+            isArchived = isArchived,
         )
     }
 }
@@ -87,22 +90,30 @@ fun TrackCard(
 @Composable
 internal fun TrackArchiveIcon(
     modifier: Modifier = Modifier,
-    addedToArchive: Boolean,
+    isArchived: Boolean,
 ) {
-    val size = 24.dp
+    val size = 20.dp
 
     Box(
-        modifier = modifier.size(size),
+        modifier = modifier.requiredSize(size),
         contentAlignment = Alignment.Center,
     ) {
-        AnimatedVisibility(visible = addedToArchive.not()) {
+        AnimatedVisibility(
+            visible = isArchived.not(),
+            enter = slideInVertically(),
+            exit = fadeOut(),
+        ) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.icon_download),
                 size = size,
             )
         }
 
-        AnimatedVisibility(visible = addedToArchive) {
+        AnimatedVisibility(
+            visible = isArchived,
+            enter = slideInVertically(),
+            exit = fadeOut(),
+        ) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.icon_remove),
                 size = size,

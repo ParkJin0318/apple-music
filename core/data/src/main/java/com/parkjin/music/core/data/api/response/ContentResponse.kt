@@ -24,5 +24,5 @@ fun ContentResponse.toModel() = Content(
     artistName = artistName,
     collectionName = collectionName,
     artworkUrl = artworkUrl,
-    isArchive = false,
+    isArchived = false,
 )

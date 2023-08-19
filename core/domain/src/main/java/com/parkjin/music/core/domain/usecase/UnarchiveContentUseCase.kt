@@ -9,6 +9,6 @@ class UnarchiveContentUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(content: Content) {
-        repository.archiveContent(content)
+        repository.unarchiveContent(content)
     }
 }
