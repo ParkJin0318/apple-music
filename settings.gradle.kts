@@ -21,4 +21,4 @@ include(":core:data")
 include(":core:domain")
 
 include(":feature:listening")
-include(":feature:locker")
+include(":feature:storage")

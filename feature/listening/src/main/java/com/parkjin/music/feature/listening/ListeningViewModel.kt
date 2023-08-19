@@ -2,7 +2,7 @@ package com.parkjin.music.feature.listening
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.parkjin.music.core.domain.model.Media
+import com.parkjin.music.core.domain.model.Content
 import com.parkjin.music.core.domain.usecase.GetGreenDayTracksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -42,11 +42,11 @@ class ListeningViewModel @Inject constructor(
         }
     }
 
-    fun addToLocker(media: Media) {
+    fun addToStorage(content: Content) {
         // TODO
     }
 
-    fun removeToLocker(media: Media) {
+    fun removeToStorage(content: Content) {
         // TODO
     }
 

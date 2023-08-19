@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.parkjin.music.feature.locker"
+    namespace = "com.parkjin.music.feature.storage"
     compileSdk = Version.compileSdk
 
     defaultConfig {

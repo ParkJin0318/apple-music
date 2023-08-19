@@ -1,4 +1,4 @@
-package com.parkjin.music.feature.locker
+package com.parkjin.music.feature.storage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,7 +10,7 @@ import com.parkjin.music.core.design.base.LocalColorScheme
 import com.parkjin.music.core.design.component.text.Text
 
 @Composable
-fun LockerScreen(
+fun StorageScreen(
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -19,6 +19,6 @@ fun LockerScreen(
             .background(LocalColorScheme.current.background),
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = "Locker")
+        Text(text = "Storage")
     }
 }

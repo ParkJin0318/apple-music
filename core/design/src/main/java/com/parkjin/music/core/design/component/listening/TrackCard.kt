@@ -33,8 +33,8 @@ fun TrackCard(
     albumName: String,
     artistName: String,
     artworkUrl: String,
-    addedToLocker: Boolean,
-    onClickLocker: (addToLocker: Boolean) -> Unit,
+    addedToStorage: Boolean,
+    onClickStorage: (addToStorage: Boolean) -> Unit,
 ) {
     Row(
         modifier = modifier.padding(horizontal = 20.dp, vertical = 8.dp),
@@ -76,18 +76,18 @@ fun TrackCard(
             )
         }
 
-        TrackLockerIcon(
+        TrackStorageIcon(
             modifier = Modifier
-                .clickable { onClickLocker(addedToLocker.not()) },
-            addedToLocker = addedToLocker,
+                .clickable { onClickStorage(addedToStorage.not()) },
+            addedToStorage = addedToStorage,
         )
     }
 }
 
 @Composable
-internal fun TrackLockerIcon(
+internal fun TrackStorageIcon(
     modifier: Modifier = Modifier,
-    addedToLocker: Boolean,
+    addedToStorage: Boolean,
 ) {
     val size = 24.dp
 
@@ -95,14 +95,14 @@ internal fun TrackLockerIcon(
         modifier = modifier.size(size),
         contentAlignment = Alignment.Center,
     ) {
-        AnimatedVisibility(visible = addedToLocker.not()) {
+        AnimatedVisibility(visible = addedToStorage.not()) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.icon_download),
                 size = size,
             )
         }
 
-        AnimatedVisibility(visible = addedToLocker) {
+        AnimatedVisibility(visible = addedToStorage) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.icon_remove),
                 size = size,

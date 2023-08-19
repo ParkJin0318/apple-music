@@ -2,7 +2,7 @@ package com.parkjin.music.core.data.repository
 
 import com.parkjin.music.core.data.api.SearchApi
 import com.parkjin.music.core.data.api.response.toModel
-import com.parkjin.music.core.domain.model.Media
+import com.parkjin.music.core.domain.model.Content
 import com.parkjin.music.core.domain.repository.SearchRepository
 import javax.inject.Inject
 
@@ -15,7 +15,7 @@ class SearchRepositoryImpl @Inject constructor(
         entity: String,
         limit: Int,
         offset: Int,
-    ): List<Media> {
+    ): List<Content> {
         return api.search(term, entity, limit, offset)
             .results
             .map { it.toModel() }

@@ -36,6 +36,10 @@ dependencies {
     implementation(Dependency.Hilt.android)
     kapt(Dependency.Hilt.complier)
 
+    implementation(Dependency.Room.room)
+    implementation(Dependency.Room.runtime)
+    kapt(Dependency.Room.complier)
+
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)
 }

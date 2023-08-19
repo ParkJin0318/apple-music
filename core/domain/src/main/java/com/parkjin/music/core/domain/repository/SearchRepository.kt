@@ -1,6 +1,6 @@
 package com.parkjin.music.core.domain.repository
 
-import com.parkjin.music.core.domain.model.Media
+import com.parkjin.music.core.domain.model.Content
 
 interface SearchRepository {
 
@@ -9,5 +9,5 @@ interface SearchRepository {
         entity: String,
         limit: Int,
         offset: Int,
-    ): List<Media>
+    ): List<Content>
 }

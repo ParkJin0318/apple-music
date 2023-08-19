@@ -1,13 +1,13 @@
 package com.parkjin.music.feature.listening
 
-import com.parkjin.music.core.domain.model.Media
+import com.parkjin.music.core.domain.model.Content
 
 interface ListeningUIModel {
 
     object Header : ListeningUIModel
 
     data class Track(
-        val item: Media,
-        val addedToLocker: Boolean,
+        val item: Content,
+        val addedToStorage: Boolean,
     ) : ListeningUIModel
 }

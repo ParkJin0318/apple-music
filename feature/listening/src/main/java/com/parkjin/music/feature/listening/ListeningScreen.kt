@@ -45,20 +45,20 @@ fun ListeningScreen(
                 }
 
                 is ListeningUIModel.Track -> {
-                    val media = uiModel.item
+                    val content = uiModel.item
 
                     TrackCard(
                         modifier = Modifier.fillMaxWidth(),
-                        trackName = media.trackName,
-                        albumName = media.collectionName,
-                        artistName = media.artistName,
-                        artworkUrl = media.artworkUrl,
-                        addedToLocker = false,
-                        onClickLocker = { addToLocker ->
-                            if (addToLocker) {
-                                viewModel.addToLocker(media)
+                        trackName = content.trackName,
+                        albumName = content.collectionName,
+                        artistName = content.artistName,
+                        artworkUrl = content.artworkUrl,
+                        addedToStorage = false,
+                        onClickStorage = { addToStorage ->
+                            if (addToStorage) {
+                                viewModel.addToStorage(content)
                             } else {
-                                viewModel.removeToLocker(media)
+                                viewModel.removeToStorage(content)
                             }
                         },
                     )

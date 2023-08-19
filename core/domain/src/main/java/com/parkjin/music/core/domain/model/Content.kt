@@ -1,6 +1,7 @@
 package com.parkjin.music.core.domain.model
 
-data class Media(
+data class Content(
+    val trackId: Long,
     val trackName: String,
     val artistName: String,
     val collectionName: String,

@@ -57,7 +57,7 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:data"))
     implementation(project(":feature:listening"))
-    implementation(project(":feature:locker"))
+    implementation(project(":feature:storage"))
 
     implementation(Dependency.Kotlinx.serialization)
     implementation(Dependency.Core.core)
@@ -76,6 +76,10 @@ dependencies {
     implementation(Dependency.Hilt.android)
     implementation(Dependency.Hilt.compose)
     kapt(Dependency.Hilt.complier)
+
+    implementation(Dependency.Room.room)
+    implementation(Dependency.Room.runtime)
+    kapt(Dependency.Room.complier)
 
     implementation(Dependency.Okhttp.okhttp)
     implementation(Dependency.Retrofit.retrofit)

@@ -50,6 +50,14 @@ object Dependency {
         const val compose = "androidx.hilt:hilt-navigation-compose:1.0.0"
     }
 
+    object Room {
+        private const val version = "2.4.3"
+
+        const val room = "androidx.room:room-ktx:$version"
+        const val runtime = "androidx.room:room-runtime:$version"
+        const val complier = "androidx.room:room-compiler:$version"
+    }
+
     object Coil {
         private const val version = "2.4.0"
 

@@ -24,7 +24,7 @@ internal object ApiModule {
 
     @Provides
     @Singleton
-    fun provideGithubApi(json: Json): SearchApi {
+    fun provideRetrofit(json: Json): Retrofit {
         val factory = json.asConverterFactory("application/json".toMediaType())
         val client = OkHttpClient.Builder().build()
 
@@ -33,6 +33,11 @@ internal object ApiModule {
             .addConverterFactory(factory)
             .client(client)
             .build()
-            .create(SearchApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSearchApi(retrofit: Retrofit): SearchApi {
+        return retrofit.create(SearchApi::class.java)
     }
 }
