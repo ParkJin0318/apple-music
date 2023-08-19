@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -57,6 +59,7 @@ dependencies {
     implementation(project(":feature:play"))
     implementation(project(":feature:locker"))
 
+    implementation(Dependency.Kotlinx.serialization)
     implementation(Dependency.Core.core)
     implementation(Dependency.Lifecycle.runtime)
     implementation(Dependency.Activity.compose)
@@ -69,6 +72,14 @@ dependencies {
 
     debugImplementation(Dependency.Compose.UI.tooling)
     debugImplementation(Dependency.Compose.UI.manifest)
+
+    implementation(Dependency.Hilt.android)
+    implementation(Dependency.Hilt.compose)
+    kapt(Dependency.Hilt.complier)
+
+    implementation(Dependency.Okhttp.okhttp)
+    implementation(Dependency.Retrofit.retrofit)
+    implementation(Dependency.Retrofit.serialization)
 
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)

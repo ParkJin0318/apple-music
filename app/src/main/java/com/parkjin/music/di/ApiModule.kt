@@ -1,4 +1,4 @@
-package com.parkjin.music.core.data.di
+package com.parkjin.music.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.parkjin.music.core.data.api.SearchApi

@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -29,10 +31,10 @@ android {
 dependencies {
 
     implementation(project(":core:design"))
+    implementation(project(":core:domain"))
 
     implementation(Dependency.Core.core)
     implementation(Dependency.Lifecycle.runtime)
-    implementation(Dependency.Activity.compose)
     implementation(platform(Dependency.Compose.bom))
     implementation(Dependency.Compose.UI.ui)
     implementation(Dependency.Compose.UI.graphics)
@@ -41,6 +43,10 @@ dependencies {
 
     debugImplementation(Dependency.Compose.UI.tooling)
     debugImplementation(Dependency.Compose.UI.manifest)
+
+    implementation(Dependency.Hilt.android)
+    implementation(Dependency.Hilt.compose)
+    kapt(Dependency.Hilt.complier)
 
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)

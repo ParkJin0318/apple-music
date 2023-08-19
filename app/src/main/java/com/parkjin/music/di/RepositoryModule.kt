@@ -1,4 +1,4 @@
-package com.parkjin.music.core.data.di
+package com.parkjin.music.di
 
 import com.parkjin.music.core.data.repository.SearchRepositoryImpl
 import com.parkjin.music.core.domain.repository.SearchRepository
@@ -14,7 +14,7 @@ internal abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindSearchRepository(
+    abstract fun bindsSearchRepository(
         impl: SearchRepositoryImpl,
     ): SearchRepository
 }

@@ -29,8 +29,6 @@ android {
 dependencies {
 
     implementation(Dependency.Core.core)
-    implementation(Dependency.Lifecycle.runtime)
-    implementation(Dependency.Activity.compose)
     implementation(platform(Dependency.Compose.bom))
     implementation(Dependency.Compose.UI.ui)
     implementation(Dependency.Compose.UI.graphics)

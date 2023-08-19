@@ -8,7 +8,7 @@ class GetGreenDaySongsUseCase @Inject constructor(
     private val repository: SearchRepository,
 ) {
 
-    suspend fun invoke(
+    suspend operator fun invoke(
         limit: Int,
         offset: Int,
     ): List<Media> {
