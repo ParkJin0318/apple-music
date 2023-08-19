@@ -50,6 +50,12 @@ object Dependency {
         const val compose = "androidx.hilt:hilt-navigation-compose:1.0.0"
     }
 
+    object Coil {
+        private const val version = "2.4.0"
+
+        val compose = "io.coil-kt:coil-compose:$version"
+    }
+
     object Okhttp {
         private const val version = "4.11.0"
 

@@ -4,7 +4,7 @@ import com.parkjin.music.core.domain.model.Media
 import com.parkjin.music.core.domain.repository.SearchRepository
 import javax.inject.Inject
 
-class GetGreenDaySongsUseCase @Inject constructor(
+class GetGreenDayTracksUseCase @Inject constructor(
     private val repository: SearchRepository,
 ) {
 

@@ -24,6 +24,28 @@ object Typography {
     @Suppress("DEPRECATION")
     private val platformTextStyle = PlatformTextStyle(false)
 
+    val heading3 = TextStyle(
+        fontSize = 32.sp,
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Normal,
+        platformStyle = platformTextStyle,
+        lineHeightStyle = LineHeightStyle(
+            alignment = LineHeightStyle.Alignment.Center,
+            trim = LineHeightStyle.Trim.None,
+        ),
+    )
+
+    val heading4 = TextStyle(
+        fontSize = 28.sp,
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Normal,
+        platformStyle = platformTextStyle,
+        lineHeightStyle = LineHeightStyle(
+            alignment = LineHeightStyle.Alignment.Center,
+            trim = LineHeightStyle.Trim.None,
+        ),
+    )
+
     val heading5 = TextStyle(
         fontSize = 24.sp,
         fontFamily = fontFamily,

@@ -1,13 +1,22 @@
 package com.parkjin.music.feature.listening
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.parkjin.music.core.design.base.LocalColorScheme
+import com.parkjin.music.core.design.base.LocalTypography
+import com.parkjin.music.core.design.component.listening.TrackCard
 import com.parkjin.music.core.design.component.text.Text
 
 @Composable
@@ -19,12 +28,42 @@ fun ListeningScreen(
 
     LazyColumn(
         modifier = modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .background(color = LocalColorScheme.current.background),
     ) {
-        items(state.songs) { song ->
-            Text(
-                text = song.trackName,
-            )
+        items(state.uiModels) { uiModel ->
+            when (uiModel) {
+                is ListeningUIModel.Header -> {
+                    Text(
+                        modifier = Modifier
+                            .padding(start = 20.dp, top = 40.dp, bottom = 12.dp, end = 20.dp),
+                        text = stringResource(id = R.string.listening_screen_title),
+                        style = LocalTypography.current.heading3.copy(
+                            fontWeight = FontWeight.Bold,
+                        ),
+                    )
+                }
+
+                is ListeningUIModel.Track -> {
+                    val media = uiModel.item
+
+                    TrackCard(
+                        modifier = Modifier.fillMaxWidth(),
+                        trackName = media.trackName,
+                        albumName = media.collectionName,
+                        artistName = media.artistName,
+                        artworkUrl = media.artworkUrl,
+                        addedToLocker = false,
+                        onClickLocker = { addToLocker ->
+                            if (addToLocker) {
+                                viewModel.addToLocker(media)
+                            } else {
+                                viewModel.removeToLocker(media)
+                            }
+                        },
+                    )
+                }
+            }
         }
     }
 }

@@ -34,6 +34,7 @@ dependencies {
     implementation(Dependency.Compose.UI.graphics)
     implementation(Dependency.Compose.UI.preview)
     implementation(Dependency.Compose.foundation)
+    implementation(Dependency.Coil.compose)
 
     debugImplementation(Dependency.Compose.UI.tooling)
     debugImplementation(Dependency.Compose.UI.manifest)
