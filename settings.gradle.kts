@@ -15,7 +15,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "apple-music"
 include(":app")
+
 include(":core:design")
+include(":core:data")
+include(":core:domain")
+
 include(":feature:play")
 include(":feature:locker")
-include(":core:data")

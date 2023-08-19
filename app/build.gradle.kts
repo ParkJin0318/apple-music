@@ -52,6 +52,7 @@ android {
 dependencies {
 
     implementation(project(":core:design"))
+    implementation(project(":core:domain"))
     implementation(project(":core:data"))
     implementation(project(":feature:play"))
     implementation(project(":feature:locker"))
