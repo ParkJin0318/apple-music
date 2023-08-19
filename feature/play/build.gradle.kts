@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.parkjin.music.feature.play"
-    compileSdk = 33
+    compileSdk = Version.compileSdk
 
     defaultConfig {
         minSdk = Version.minSdk

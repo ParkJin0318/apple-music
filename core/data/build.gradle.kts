@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.parkjin.music.core.design"
+    namespace = "com.parkjin.music.core.data"
     compileSdk = Version.compileSdk
 
     defaultConfig {
@@ -18,9 +18,6 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildFeatures {
-        compose = true
-    }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
     }
@@ -29,17 +26,6 @@ android {
 dependencies {
 
     implementation(Dependency.Core.core)
-    implementation(Dependency.Lifecycle.runtime)
-    implementation(Dependency.Activity.compose)
-    implementation(platform(Dependency.Compose.bom))
-    implementation(Dependency.Compose.UI.ui)
-    implementation(Dependency.Compose.UI.graphics)
-    implementation(Dependency.Compose.UI.preview)
-    implementation(Dependency.Compose.foundation)
-
-    debugImplementation(Dependency.Compose.UI.tooling)
-    debugImplementation(Dependency.Compose.UI.manifest)
-
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)
 }
