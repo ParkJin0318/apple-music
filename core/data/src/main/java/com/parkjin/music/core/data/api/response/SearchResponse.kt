@@ -4,13 +4,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class SearchResponse(
-    @SerialName("trackName")
-    val trackName: String,
-    @SerialName("artistName")
-    val artistName: String,
-    @SerialName("collectionName")
-    val albumName: String,
-    @SerialName("artworkUrl60")
-    val artworkUrl: String,
+data class SearchResponse<T>(
+    @SerialName("resultCount")
+    val resultCount: Int,
+    @SerialName("results")
+    val results: List<T>,
 )

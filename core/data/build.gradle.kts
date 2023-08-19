@@ -25,6 +25,8 @@ android {
 
 dependencies {
 
+    implementation(project(":core:domain"))
+
     implementation(Dependency.Kotlinx.serialization)
     implementation(Dependency.Core.core)
     implementation(Dependency.Okhttp.okhttp)

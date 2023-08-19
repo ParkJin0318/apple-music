@@ -1,7 +1,7 @@
 package com.parkjin.music.core.data.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.parkjin.music.core.data.api.SearchAPI
+import com.parkjin.music.core.data.api.SearchApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +24,7 @@ internal object ApiModule {
 
     @Provides
     @Singleton
-    fun provideGithubApi(json: Json): SearchAPI {
+    fun provideGithubApi(json: Json): SearchApi {
         val factory = json.asConverterFactory("application/json".toMediaType())
         val client = OkHttpClient.Builder().build()
 
@@ -33,6 +33,6 @@ internal object ApiModule {
             .addConverterFactory(factory)
             .client(client)
             .build()
-            .create(SearchAPI::class.java)
+            .create(SearchApi::class.java)
     }
 }

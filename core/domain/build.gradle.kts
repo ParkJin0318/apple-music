@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -21,6 +23,10 @@ android {
 }
 
 dependencies {
+
+    implementation(Dependency.Hilt.android)
+    kapt(Dependency.Hilt.complier)
+
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)
 }
