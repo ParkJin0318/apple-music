@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.parkjin.music.core.domain.model.Content
 
 @Entity(tableName = "content_table")
-data class ContentEntity(
+data class ArchivedContentEntity(
     @PrimaryKey
     val trackId: Long,
     val trackName: String,
@@ -14,15 +14,16 @@ data class ContentEntity(
     val artworkUrl: String,
 )
 
-fun ContentEntity.toModel() = Content(
+fun ArchivedContentEntity.toModel() = Content(
     trackId = trackId,
     trackName = trackName,
     artistName = artistName,
     collectionName = collectionName,
     artworkUrl = artworkUrl,
+    isArchive = true,
 )
 
-fun Content.toEntity() = ContentEntity(
+fun Content.toEntity() = ArchivedContentEntity(
     trackId = trackId,
     trackName = trackName,
     artistName = artistName,

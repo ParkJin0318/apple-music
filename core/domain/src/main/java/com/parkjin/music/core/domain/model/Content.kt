@@ -6,4 +6,5 @@ data class Content(
     val artistName: String,
     val collectionName: String,
     val artworkUrl: String,
+    val isArchive: Boolean,
 )

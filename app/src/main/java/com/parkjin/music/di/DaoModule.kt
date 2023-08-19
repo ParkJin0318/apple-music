@@ -23,5 +23,5 @@ internal object DaoModule {
 
     @Singleton
     @Provides
-    fun provideContentDao(database: LocalDatabase) = database.contentDao()
+    fun provideArchivedContentDao(database: LocalDatabase) = database.archivedContentDao()
 }
