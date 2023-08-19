@@ -11,7 +11,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.parkjin.music.core.design.R
@@ -26,16 +25,6 @@ fun AppleMusicApp() {
         .value
         ?.destination
         ?.route
-
-    val navigate = { route: String ->
-        navController.navigate(route) {
-            popUpTo(navController.graph.findStartDestination().id) {
-                saveState = true
-            }
-            launchSingleTop = true
-            restoreState = true
-        }
-    }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -56,13 +45,13 @@ fun AppleMusicApp() {
                 icon = ImageVector.vectorResource(R.drawable.icon_listening),
                 name = stringResource(id = R.string.word_listening),
                 selected = currentRoute == AppleMusicNavigationType.Listening.route,
-                onClick = { navigate(AppleMusicNavigationType.Listening.route) },
+                onClick = { navController.navigate(AppleMusicNavigationType.Listening) },
             )
             BottomNavigationItem(
                 icon = ImageVector.vectorResource(R.drawable.icon_archive),
                 name = stringResource(id = R.string.word_archive),
                 selected = currentRoute == AppleMusicNavigationType.Archive.route,
-                onClick = { navigate(AppleMusicNavigationType.Archive.route) },
+                onClick = { navController.navigate(AppleMusicNavigationType.Archive) },
             )
         }
     }

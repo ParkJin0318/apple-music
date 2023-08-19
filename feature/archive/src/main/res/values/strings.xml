@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="archive_screen_title">보관함</string>
+
+    <string name="archive_screen_empty_title">보관된 컨텐츠를 찾고 계신가요?</string>
+    <string name="archive_screen_empty_subtitle">듣기 탭에서 추가한 컨텐츠가 여기에 나타납니다</string>
+    <string name="archive_screen_empty_button">컨텐츠 추가</string>
 </resources>

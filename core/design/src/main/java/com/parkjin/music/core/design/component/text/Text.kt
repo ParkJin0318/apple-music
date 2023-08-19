@@ -6,6 +6,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import com.parkjin.music.core.design.base.AppleMusicTheme
 import com.parkjin.music.core.design.base.LocalTypography
 
 @Composable
@@ -24,4 +26,12 @@ fun Text(
         ),
         overflow = overflow,
     )
+}
+
+@Preview
+@Composable
+fun TextPreview() {
+    AppleMusicTheme {
+        Text(text = "Preview")
+    }
 }

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="listening_screen_title">지금 듣기</string>
+
+    <string name="listening_screen_empty_title">지금 듣기 컨텐츠에 오류가 발생했습니다</string>
+    <string name="listening_screen_empty_subtitle">잠시후 다시 시도해 주세요</string>
 </resources>

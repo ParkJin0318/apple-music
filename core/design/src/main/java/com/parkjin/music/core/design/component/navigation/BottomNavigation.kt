@@ -78,7 +78,7 @@ fun BottomNavigationItem(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun PreviewBottomNavigation() {
     AppleMusicTheme {

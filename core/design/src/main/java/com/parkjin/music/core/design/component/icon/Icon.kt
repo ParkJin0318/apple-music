@@ -13,7 +13,12 @@ import androidx.compose.ui.graphics.toolingGraphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import com.parkjin.music.core.design.R
+import com.parkjin.music.core.design.base.AppleMusicTheme
 
 @Composable
 fun Icon(
@@ -47,4 +52,15 @@ fun Icon(
                 colorFilter = tint?.let(ColorFilter::tint),
             ),
     )
+}
+
+@Preview
+@Composable
+fun IconPreview() {
+    AppleMusicTheme {
+        Icon(
+            imageVector = ImageVector.vectorResource(id = R.drawable.icon_listening),
+            size = 24.dp,
+        )
+    }
 }

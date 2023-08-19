@@ -26,7 +26,11 @@ fun AppleMusicNavHost(
             }
 
             composable(AppleMusicNavigationType.Archive.route) {
-                ArchiveScreen()
+                ArchiveScreen(
+                    onClickEmpty = {
+                        navController.navigate(AppleMusicNavigationType.Listening)
+                    }
+                )
             }
         }
     }

@@ -3,6 +3,7 @@ package com.parkjin.music.core.design.component.listening
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,10 +21,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.parkjin.music.core.design.R
+import com.parkjin.music.core.design.base.AppleMusicTheme
 import com.parkjin.music.core.design.base.LocalColorScheme
 import com.parkjin.music.core.design.base.LocalTypography
 import com.parkjin.music.core.design.component.icon.Icon
@@ -40,7 +43,9 @@ fun TrackCard(
     onClickArchive: (isArchive: Boolean) -> Unit,
 ) {
     Row(
-        modifier = modifier.padding(horizontal = 20.dp, vertical = 8.dp),
+        modifier = modifier
+            .background(LocalColorScheme.current.background)
+            .padding(horizontal = 20.dp, vertical = 8.dp),
     ) {
         AsyncImage(
             modifier = Modifier
@@ -119,5 +124,20 @@ internal fun TrackArchiveIcon(
                 size = size,
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewTrackCard() {
+    AppleMusicTheme {
+        TrackCard(
+            trackName = "Track Name",
+            albumName = "Album Name",
+            artistName = "Artist Name",
+            artworkUrl = "",
+            isArchived = false,
+            onClickArchive = {},
+        )
     }
 }
