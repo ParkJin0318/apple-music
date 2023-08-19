@@ -1,5 +1,9 @@
 object Dependency {
 
+    object Kotlinx {
+        const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
+    }
+
     object Core {
         private const val version = "1.9.0"
 
@@ -36,6 +40,27 @@ object Dependency {
         private const val version = "2.6.0"
 
         const val compose = "androidx.navigation:navigation-compose:$version"
+    }
+
+    object Hilt {
+        private const val version = "2.44.1"
+
+        const val android = "com.google.dagger:hilt-android:$version"
+        const val complier = "com.google.dagger:hilt-compiler:$version"
+        const val compose = "androidx.hilt:hilt-navigation-compose:1.0.0"
+    }
+
+    object Okhttp {
+        private const val version = "4.11.0"
+
+        const val okhttp = "com.squareup.okhttp3:okhttp:$version"
+    }
+
+    object Retrofit {
+        private const val version = "2.9.0"
+
+        const val retrofit = "com.squareup.retrofit2:retrofit:$version"
+        const val serialization = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
     }
 
     object Kotest {

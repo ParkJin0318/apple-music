@@ -1,6 +1,9 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    kotlin("android")
+    kotlin("kapt")
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -25,7 +28,15 @@ android {
 
 dependencies {
 
+    implementation(Dependency.Kotlinx.serialization)
     implementation(Dependency.Core.core)
+    implementation(Dependency.Okhttp.okhttp)
+    implementation(Dependency.Retrofit.retrofit)
+    implementation(Dependency.Retrofit.serialization)
+
+    implementation(Dependency.Hilt.android)
+    kapt(Dependency.Hilt.complier)
+
     testImplementation(Dependency.Kotest.runner)
     testImplementation(Dependency.Kotest.assertions)
 }
