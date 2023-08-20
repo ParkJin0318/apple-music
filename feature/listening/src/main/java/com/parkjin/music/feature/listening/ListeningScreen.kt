@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -23,6 +24,7 @@ import com.parkjin.music.core.design.base.LocalColorScheme
 import com.parkjin.music.core.design.base.LocalTypography
 import com.parkjin.music.core.design.component.listening.TrackCard
 import com.parkjin.music.core.design.component.text.Text
+import com.parkjin.music.feature.listening.extension.onBottomReached
 
 @Composable
 fun ListeningScreen(
@@ -30,23 +32,17 @@ fun ListeningScreen(
     viewModel: ListeningViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
+    val listState = rememberLazyListState()
 
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
             .background(color = LocalColorScheme.current.background),
+        state = listState,
     ) {
-        val sections = mutableListOf<ListeningScreenSection>(ListeningScreenSection.Header)
-
-        if (state.tracks.isEmpty()) {
-            sections.add(ListeningScreenSection.Empty)
-        } else {
-            sections.addAll(state.tracks.map(ListeningScreenSection::TrackItem))
-        }
-
-        items(sections, key = { it.id }) { section ->
+        items(state.sections, key = { it.id }) { section ->
             when (section) {
-                is ListeningScreenSection.Header -> {
+                is ListeningUISection.Header -> {
                     Text(
                         modifier = Modifier
                             .padding(start = 20.dp, top = 40.dp, bottom = 12.dp, end = 20.dp),
@@ -57,7 +53,7 @@ fun ListeningScreen(
                     )
                 }
 
-                is ListeningScreenSection.Empty -> {
+                is ListeningUISection.Empty -> {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -84,7 +80,7 @@ fun ListeningScreen(
                     }
                 }
 
-                is ListeningScreenSection.TrackItem -> {
+                is ListeningUISection.TrackItem -> {
                     val track = section.track
 
                     TrackCard(
@@ -103,7 +99,24 @@ fun ListeningScreen(
                         },
                     )
                 }
+
+                is ListeningUISection.Loading -> {
+                    Text(
+                        modifier = modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 20.dp),
+                        text = stringResource(id = R.string.listening_screen_loading),
+                        style = LocalTypography.current.body3.copy(
+                            color = LocalColorScheme.current.content,
+                            textAlign = TextAlign.Center,
+                        ),
+                    )
+                }
             }
         }
+    }
+
+    listState.onBottomReached(buffer = 1) {
+        viewModel.loadTracks()
     }
 }

@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,7 +23,13 @@ class ArchiveViewModel @Inject constructor(
     private val _state = MutableStateFlow(ArchiveUIState())
     val state = _state.asStateFlow()
 
+    private val currentState: ArchiveUIState
+        get() = state.value
+
     init {
+        val sections = listOf(ArchiveUISection.Header)
+        _state.update { it.copy(sections = sections) }
+
         loadTracks()
     }
 
@@ -35,23 +41,26 @@ class ArchiveViewModel @Inject constructor(
 
     private fun loadTracks() {
         getArchivedContents()
-            .onStart {
-                updateState {
-                    copy(isLoading = true)
-                }
-            }
-            .onEach { tracks ->
-                updateState {
-                    copy(tracks = tracks, isLoading = false)
-                }
-            }.launchIn(viewModelScope)
+            .onEach { handleTracks(it) }
+            .launchIn(viewModelScope)
     }
 
-    private fun updateState(block: ArchiveUIState.() -> ArchiveUIState) {
-        val newState = block(state.value)
-
-        viewModelScope.launch {
-            _state.emit(newState)
+    private fun handleTracks(tracks: List<Content>) {
+        val sections = currentState.sections.toMutableList()
+        sections.removeAll {
+            it is ArchiveUISection.TrackItem ||
+                it is ArchiveUISection.Empty
         }
+
+        if (tracks.isEmpty()) {
+            sections.add(ArchiveUISection.Empty)
+
+            _state.update { it.copy(sections = sections) }
+            return
+        }
+
+        sections.addAll(tracks.map(ArchiveUISection::TrackItem))
+
+        _state.update { it.copy(sections = sections) }
     }
 }

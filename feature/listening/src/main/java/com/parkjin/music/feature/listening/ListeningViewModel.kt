@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,6 +25,7 @@ class ListeningViewModel @Inject constructor(
     companion object {
         private const val Term = "greenday"
         private const val Entity = "song"
+        private const val Limit = 30
     }
 
     private val _state = MutableStateFlow(ListeningUIState())
@@ -34,6 +35,9 @@ class ListeningViewModel @Inject constructor(
         get() = state.value
 
     init {
+        val sections = listOf(ListeningUISection.Header)
+        _state.update { it.copy(sections = sections) }
+
         loadTracks()
     }
 
@@ -49,31 +53,53 @@ class ListeningViewModel @Inject constructor(
         }
     }
 
-    private fun loadTracks() {
-        searchContents(term = Term, entity = Entity, limit = 30, offset = 0)
-            .onStart {
-                updateState {
-                    copy(isLoading = true)
-                }
-            }
-            .onEach { tracks ->
-                val copiedTracks = currentState.tracks
-                    .associateBy { it.trackId }
-                    .toMutableMap()
+    fun loadTracks() {
+        val sections = currentState.sections.toMutableList()
 
-                copiedTracks.putAll(tracks.associateBy { it.trackId })
+        if (sections.contains(ListeningUISection.Loading)) return
+        sections.add(ListeningUISection.Loading)
 
-                updateState {
-                    copy(tracks = copiedTracks.values.toList(), isLoading = false)
-                }
-            }.launchIn(viewModelScope)
+        _state.update { it.copy(sections = sections) }
+
+        searchContents(term = Term, entity = Entity, limit = Limit, offset = currentState.offset)
+            .onEach { handleTracks(it) }
+            .launchIn(viewModelScope)
     }
 
-    private fun updateState(block: ListeningUIState.() -> ListeningUIState) {
-        val newState = block(state.value)
-
-        viewModelScope.launch {
-            _state.emit(newState)
+    private fun handleTracks(tracks: List<Content>) {
+        val sections = currentState.sections.toMutableList()
+        sections.removeAll {
+            it is ListeningUISection.TrackItem ||
+                it is ListeningUISection.Empty ||
+                it is ListeningUISection.Loading
         }
+
+        if (tracks.isEmpty()) {
+            sections.add(ListeningUISection.Empty)
+
+            _state.update { it.copy(sections = sections) }
+            return
+        }
+
+        val mergedTracks = mergeTracks(tracks)
+        sections.addAll(mergedTracks.map(ListeningUISection::TrackItem))
+
+        _state.update {
+            it.copy(
+                offset = it.offset.plus(tracks.size),
+                sections = sections,
+            )
+        }
+    }
+
+    private fun mergeTracks(tracks: List<Content>): List<Content> {
+        val copiedTracks = currentState.sections
+            .filterIsInstance<ListeningUISection.TrackItem>()
+            .map { it.track }
+            .associateBy { it.trackId }
+            .toMutableMap()
+
+        copiedTracks.putAll(tracks.associateBy { it.trackId })
+        return copiedTracks.values.toList()
     }
 }

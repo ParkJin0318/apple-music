@@ -38,17 +38,9 @@ fun ArchiveScreen(
             .fillMaxSize()
             .background(color = LocalColorScheme.current.background),
     ) {
-        val sections = mutableListOf<ArchiveScreenSection>(ArchiveScreenSection.Header)
-
-        if (state.tracks.isEmpty()) {
-            sections.add(ArchiveScreenSection.Empty)
-        } else {
-            sections.addAll(state.tracks.map(ArchiveScreenSection::TrackItem))
-        }
-
-        items(sections, key = { it.id }) { section ->
+        items(state.sections, key = { it.id }) { section ->
             when (section) {
-                is ArchiveScreenSection.Header -> {
+                is ArchiveUISection.Header -> {
                     Text(
                         modifier = Modifier
                             .padding(start = 20.dp, top = 40.dp, bottom = 12.dp, end = 20.dp),
@@ -59,7 +51,7 @@ fun ArchiveScreen(
                     )
                 }
 
-                is ArchiveScreenSection.Empty -> {
+                is ArchiveUISection.Empty -> {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -95,7 +87,7 @@ fun ArchiveScreen(
                     }
                 }
 
-                is ArchiveScreenSection.TrackItem -> {
+                is ArchiveUISection.TrackItem -> {
                     val track = section.track
 
                     TrackCard(
