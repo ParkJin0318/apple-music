@@ -70,8 +70,8 @@ fun ArchiveScreen(
 
                         Text(
                             text = stringResource(id = R.string.archive_screen_empty_subtitle),
+                            color = LocalColorScheme.current.content200,
                             style = LocalTypography.current.body3.copy(
-                                color = LocalColorScheme.current.content,
                                 textAlign = TextAlign.Center,
                             ),
                         )

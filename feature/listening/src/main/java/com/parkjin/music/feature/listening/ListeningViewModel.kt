@@ -48,15 +48,15 @@ class ListeningViewModel @Inject constructor(
         loadTracks()
     }
 
-    fun archiveTrack(content: Content) {
+    fun archiveTrack(track: Content) {
         viewModelScope.launch(exceptionHandler) {
-            archiveContent(content)
+            archiveContent(track)
         }
     }
 
-    fun unarchiveTrack(content: Content) {
+    fun unarchiveTrack(track: Content) {
         viewModelScope.launch(exceptionHandler) {
-            unarchiveContent(content)
+            unarchiveContent(track)
         }
     }
 

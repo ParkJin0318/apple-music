@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -36,8 +37,9 @@ fun AppleMusicApp() {
 
         Box(
             modifier = Modifier
-                .height(1.dp)
-                .background(LocalColorScheme.current.content),
+                .fillMaxWidth()
+                .height(0.5.dp)
+                .background(LocalColorScheme.current.divider),
         )
 
         BottomNavigation {

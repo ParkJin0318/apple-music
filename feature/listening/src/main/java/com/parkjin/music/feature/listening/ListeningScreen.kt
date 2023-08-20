@@ -55,8 +55,8 @@ fun ListeningScreen(
                             .fillMaxWidth()
                             .padding(vertical = 20.dp),
                         text = stringResource(id = R.string.listening_screen_loading),
+                        color = LocalColorScheme.current.content200,
                         style = LocalTypography.current.body3.copy(
-                            color = LocalColorScheme.current.content,
                             textAlign = TextAlign.Center,
                         ),
                     )

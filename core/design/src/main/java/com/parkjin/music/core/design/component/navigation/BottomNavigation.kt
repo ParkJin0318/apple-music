@@ -28,10 +28,11 @@ import com.parkjin.music.core.design.component.text.Text
 
 @Composable
 fun BottomNavigation(
+    modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(LocalColorScheme.current.background)
             .padding(horizontal = 20.dp, vertical = 6.dp),
@@ -52,9 +53,9 @@ fun BottomNavigationItem(
 ) {
     val color by animateColorAsState(
         targetValue = if (selected) {
-            LocalColorScheme.current.primary
+            LocalColorScheme.current.secondary
         } else {
-            LocalColorScheme.current.content
+            LocalColorScheme.current.content200
         },
         animationSpec = spring(dampingRatio = 3f),
         label = "bottomNavigationItemColor",
@@ -86,6 +87,7 @@ fun PreviewBottomNavigation() {
             BottomNavigationItem(
                 icon = ImageVector.vectorResource(R.drawable.icon_listening),
                 name = stringResource(id = R.string.word_listening),
+                selected = true,
                 onClick = {},
             )
             BottomNavigationItem(

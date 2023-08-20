@@ -78,9 +78,8 @@ fun TrackCard(
             Text(
                 modifier = Modifier.padding(top = 4.dp),
                 text = artistName,
-                style = LocalTypography.current.body3.copy(
-                    color = LocalColorScheme.current.content,
-                ),
+                color = LocalColorScheme.current.content200,
+                style = LocalTypography.current.body3,
             )
         }
 

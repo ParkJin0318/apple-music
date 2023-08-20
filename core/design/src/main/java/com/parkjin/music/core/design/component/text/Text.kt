@@ -8,6 +8,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.parkjin.music.core.design.base.AppleMusicTheme
+import com.parkjin.music.core.design.base.LocalColorScheme
 import com.parkjin.music.core.design.base.LocalTypography
 
 @Composable
@@ -15,7 +16,7 @@ fun Text(
     modifier: Modifier = Modifier,
     text: String,
     style: TextStyle = LocalTypography.current.body3,
-    color: Color = style.color,
+    color: Color = LocalColorScheme.current.content,
     overflow: TextOverflow = TextOverflow.Ellipsis,
 ) {
     BasicText(

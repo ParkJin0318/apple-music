@@ -6,8 +6,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.parkjin.music.feature.listening.ListeningScreen
 import com.parkjin.music.feature.archive.ArchiveScreen
+import com.parkjin.music.feature.listening.ListeningScreen
 
 @Composable
 fun AppleMusicNavHost(
@@ -29,7 +29,7 @@ fun AppleMusicNavHost(
                 ArchiveScreen(
                     onClickEmpty = {
                         navController.navigate(AppleMusicNavigationType.Listening)
-                    }
+                    },
                 )
             }
         }

@@ -24,7 +24,7 @@ fun Button(
 ) {
     Box(
         modifier = modifier
-            .background(color = LocalColorScheme.current.primary, RoundedCornerShape(8.dp))
+            .background(color = LocalColorScheme.current.secondary, RoundedCornerShape(8.dp))
             .clickable { onClick() },
         contentAlignment = Alignment.Center,
     ) {
@@ -32,8 +32,8 @@ fun Button(
             modifier = Modifier
                 .padding(horizontal = 20.dp, vertical = 12.dp),
             text = text,
+            color = LocalColorScheme.current.primary,
             style = LocalTypography.current.body2.copy(
-                color = LocalColorScheme.current.content999,
                 fontWeight = FontWeight.SemiBold,
             ),
         )

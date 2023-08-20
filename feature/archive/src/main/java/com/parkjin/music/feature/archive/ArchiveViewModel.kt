@@ -40,9 +40,9 @@ class ArchiveViewModel @Inject constructor(
         loadTracks()
     }
 
-    fun unarchiveTrack(content: Content) {
+    fun unarchiveTrack(track: Content) {
         viewModelScope.launch(exceptionHandler) {
-            unarchiveContent(content)
+            unarchiveContent(track)
         }
     }
 
