@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.parkjin.music.core.design.R
-import com.parkjin.music.core.design.base.LocalColorScheme
+import com.parkjin.music.core.design.theme.LocalColorScheme
 import com.parkjin.music.core.design.component.navigation.BottomNavigation
 import com.parkjin.music.core.design.component.navigation.BottomNavigationItem
 

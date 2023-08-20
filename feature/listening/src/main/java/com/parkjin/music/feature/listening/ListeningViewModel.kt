@@ -1,6 +1,5 @@
 package com.parkjin.music.feature.listening
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.parkjin.music.core.domain.model.Content
@@ -38,7 +37,7 @@ class ListeningViewModel @Inject constructor(
         get() = state.value
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-        Log.e("test", throwable.message ?: "error")
+        throwable.printStackTrace()
     }
 
     init {

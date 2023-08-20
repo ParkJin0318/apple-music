@@ -19,11 +19,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.parkjin.music.core.design.base.LocalColorScheme
-import com.parkjin.music.core.design.base.LocalTypography
-import com.parkjin.music.core.design.component.button.Button
-import com.parkjin.music.core.design.component.listening.TrackCard
-import com.parkjin.music.core.design.component.text.Text
+import com.parkjin.music.core.design.theme.LocalColorScheme
+import com.parkjin.music.core.design.theme.LocalTypography
+import com.parkjin.music.core.design.element.button.Button
+import com.parkjin.music.core.design.component.track.TrackCard
+import com.parkjin.music.core.design.element.text.Text
 
 @Composable
 fun ArchiveScreen(

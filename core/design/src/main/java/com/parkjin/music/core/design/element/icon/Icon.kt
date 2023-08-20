@@ -1,8 +1,7 @@
-package com.parkjin.music.core.design.component.icon
+package com.parkjin.music.core.design.element.icon
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
@@ -18,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.parkjin.music.core.design.R
-import com.parkjin.music.core.design.base.AppleMusicTheme
+import com.parkjin.music.core.design.theme.AppleMusicTheme
 
 @Composable
 fun Icon(

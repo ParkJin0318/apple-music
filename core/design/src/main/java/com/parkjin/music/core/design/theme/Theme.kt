@@ -1,4 +1,4 @@
-package com.parkjin.music.core.design.base
+package com.parkjin.music.core.design.theme
 
 import android.app.Activity
 import androidx.compose.foundation.Indication

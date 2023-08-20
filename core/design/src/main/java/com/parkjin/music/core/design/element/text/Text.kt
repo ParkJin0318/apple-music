@@ -1,4 +1,4 @@
-package com.parkjin.music.core.design.component.text
+package com.parkjin.music.core.design.element.text
 
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
@@ -7,9 +7,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import com.parkjin.music.core.design.base.AppleMusicTheme
-import com.parkjin.music.core.design.base.LocalColorScheme
-import com.parkjin.music.core.design.base.LocalTypography
+import com.parkjin.music.core.design.theme.AppleMusicTheme
+import com.parkjin.music.core.design.theme.LocalColorScheme
+import com.parkjin.music.core.design.theme.LocalTypography
 
 @Composable
 fun Text(

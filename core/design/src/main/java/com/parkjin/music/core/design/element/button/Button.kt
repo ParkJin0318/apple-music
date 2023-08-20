@@ -1,4 +1,4 @@
-package com.parkjin.music.core.design.component.button
+package com.parkjin.music.core.design.element.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -11,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.parkjin.music.core.design.base.AppleMusicTheme
-import com.parkjin.music.core.design.base.LocalColorScheme
-import com.parkjin.music.core.design.base.LocalTypography
-import com.parkjin.music.core.design.component.text.Text
+import com.parkjin.music.core.design.theme.AppleMusicTheme
+import com.parkjin.music.core.design.theme.LocalColorScheme
+import com.parkjin.music.core.design.theme.LocalTypography
+import com.parkjin.music.core.design.element.text.Text
 
 @Composable
 fun Button(

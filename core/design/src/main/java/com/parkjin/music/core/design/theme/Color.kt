@@ -1,4 +1,4 @@
-package com.parkjin.music.core.design.base
+package com.parkjin.music.core.design.theme
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color

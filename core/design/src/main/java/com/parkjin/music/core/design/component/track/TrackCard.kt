@@ -1,4 +1,4 @@
-package com.parkjin.music.core.design.component.listening
+package com.parkjin.music.core.design.component.track
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeOut
@@ -26,11 +26,11 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.parkjin.music.core.design.R
-import com.parkjin.music.core.design.base.AppleMusicTheme
-import com.parkjin.music.core.design.base.LocalColorScheme
-import com.parkjin.music.core.design.base.LocalTypography
-import com.parkjin.music.core.design.component.icon.Icon
-import com.parkjin.music.core.design.component.text.Text
+import com.parkjin.music.core.design.theme.AppleMusicTheme
+import com.parkjin.music.core.design.theme.LocalColorScheme
+import com.parkjin.music.core.design.theme.LocalTypography
+import com.parkjin.music.core.design.element.icon.Icon
+import com.parkjin.music.core.design.element.text.Text
 
 @Composable
 fun TrackCard(
