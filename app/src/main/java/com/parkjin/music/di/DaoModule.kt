@@ -18,10 +18,9 @@ internal object DaoModule {
     fun provideDatabase(application: Application) =
         Room.databaseBuilder(application, LocalDatabase::class.java, "database")
             .fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
             .build()
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideArchivedContentDao(database: LocalDatabase) = database.archivedContentDao()
 }
