@@ -13,17 +13,15 @@ import kotlinx.coroutines.flow.filter
 @SuppressLint("ComposableNaming")
 @Composable
 fun LazyListState.onBottomReached(
-    buffer: Int = 0,
-    onLoadMore: () -> Unit,
+    threshold: Int = 0,
+    block: () -> Unit,
 ) {
-    require(buffer >= 0) { "buffer cannot be negative, but was $buffer" }
-
     val shouldLoadMore = remember {
         derivedStateOf {
             val lastVisibleItem = layoutInfo.visibleItemsInfo.lastOrNull()
-                ?: return@derivedStateOf true
+                ?: return@derivedStateOf false
 
-            lastVisibleItem.index >= layoutInfo.totalItemsCount - 1 - buffer
+            lastVisibleItem.index >= layoutInfo.totalItemsCount.minus(threshold)
         }
     }
 
@@ -31,6 +29,6 @@ fun LazyListState.onBottomReached(
         snapshotFlow { shouldLoadMore.value }
             .distinctUntilChanged()
             .filter { it }
-            .collect { onLoadMore() }
+            .collect { block() }
     }
 }

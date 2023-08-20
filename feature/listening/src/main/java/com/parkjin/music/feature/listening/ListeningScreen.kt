@@ -85,7 +85,7 @@ fun ListeningScreen(
         }
     }
 
-    listState.onBottomReached(buffer = 1) {
+    listState.onBottomReached(threshold = 1) {
         viewModel.loadTracks()
     }
 }
