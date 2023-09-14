@@ -36,19 +36,15 @@ class ArchiveViewModel @Inject constructor(
         val sections = listOf(ArchiveUISection.Header)
         _state.update { it.copy(sections = sections) }
 
-        loadTracks()
+        getArchivedContents()
+            .onEach { handleTracks(it) }
+            .launchIn(viewModelScope + exceptionHandler)
     }
 
     fun unarchiveTrack(track: Content) {
         viewModelScope.launch(exceptionHandler) {
             unarchiveContent(track)
         }
-    }
-
-    private fun loadTracks() {
-        getArchivedContents()
-            .onEach { handleTracks(it) }
-            .launchIn(viewModelScope + exceptionHandler)
     }
 
     private fun handleTracks(tracks: List<Content>) {

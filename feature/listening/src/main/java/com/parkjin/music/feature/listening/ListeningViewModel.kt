@@ -25,7 +25,6 @@ class ListeningViewModel @Inject constructor(
 ) : ViewModel() {
 
     companion object {
-        private const val Term = "greenday"
         private const val Entity = "song"
         private const val Limit = 30
     }
@@ -43,6 +42,10 @@ class ListeningViewModel @Inject constructor(
     init {
         val sections = listOf(ListeningUISection.Header)
         _state.update { it.copy(sections = sections) }
+
+        searchContents.data
+            .onEach { handleTracks(it) }
+            .launchIn(viewModelScope + exceptionHandler)
 
         loadTracks()
     }
@@ -67,9 +70,14 @@ class ListeningViewModel @Inject constructor(
 
         _state.update { it.copy(sections = sections) }
 
-        searchContents(term = Term, entity = Entity, limit = Limit, offset = currentState.offset)
-            .onEach { handleTracks(it) }
-            .launchIn(viewModelScope + exceptionHandler)
+        viewModelScope.launch(exceptionHandler) {
+            searchContents(
+                term = "apple",
+                entity = Entity,
+                limit = Limit,
+                offset = currentState.offset,
+            )
+        }
     }
 
     private fun handleTracks(tracks: List<Content>) {
